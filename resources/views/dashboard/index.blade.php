@@ -12,6 +12,13 @@
                             </option>
                         @endforeach
                     </select>
+                    <select id="tahun" name="tahun" class="form-select w-auto" onchange="this.form.submit()">
+                        @foreach ($tahun_range as $tahun)
+                            <option value="{{ $tahun }}" {{ $tahun == $tahun_sekarang ? 'selected' : '' }}>
+                                {{ $tahun }}
+                            </option>
+                        @endforeach
+                    </select>
                     <a href="{{ route('kontrak.download', $slug) }}" id="downloadButton" class="btn btn-primary ms-auto"
                         style="margin-right: 20px">Download Kontrak</a>
                 </div>

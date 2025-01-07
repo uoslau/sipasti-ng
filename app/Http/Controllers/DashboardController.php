@@ -28,11 +28,14 @@ class DashboardController extends Controller
         ];
 
         $bulan_sekarang = $request->input('bulan', date('n'));
-        $tahun_sekarang = date('Y');
+        $tahun_sekarang = $request->input('tahun', date('Y'));
 
         if (!array_key_exists($bulan_sekarang, $nama_bulan)) {
             abort(400, 'Bulan tidak valid.');
         }
+
+        $tahun_mulai = date('Y') - 1;
+        $tahun_range = range($tahun_mulai, date('Y'));
 
         $slug = strtolower($nama_bulan[$bulan_sekarang]) . '-' . $tahun_sekarang;
 
@@ -83,6 +86,8 @@ class DashboardController extends Controller
         return view('dashboard.index', [
             'nama_bulan'        => $nama_bulan,
             'bulan_sekarang'    => $bulan_sekarang,
+            'tahun_sekarang'    => $tahun_sekarang,
+            'tahun_range'       => $tahun_range,
             'petugas_bulan'     => $totalHonorPerPetugas,
             'slug'              => $slug,
             'kegiatan'          => $kegiatan,
