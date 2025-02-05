@@ -1,3 +1,4 @@
+{{-- @dd($kegiatan) --}}
 <x-layout>
     <div class="container-xxl flex-grow-1 container-p-y">
         @if (session()->has('success'))
@@ -10,14 +11,15 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="card-header">Daftar Kegiatan</h5>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"
-                    style="margin-right: 20px;">
+                    style="margin-right: 20px;"><i class="bx bx-plus-circle me-1"></i>
                     Tambah Kegiatan
                 </button>
                 <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel3">Tambah Kegiatan</h5>
+                                <h5 class="modal-title" id="exampleModalLabel3">
+                                    Tambah Kegiatan</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -34,7 +36,7 @@
                         <tr>
                             <th>Nama Kegiatan</th>
                             <th class="text-center">Budget</th>
-                            <th class="text-center">Fungsi</th>
+                            <th class="text-center">Tim Kerja</th>
                             <th class="text-center">Mulai</th>
                             <th class="text-center">Selesai</th>
                             <th></th>
@@ -54,7 +56,11 @@
                                 </td>
                                 <td class="text-center">
                                     <span class="badge rounded-pill bg-label-primary">
-                                        {{ $k->fungsi->fungsi }}
+                                        @if ($k->tim_kerja_id == 12)
+                                            {{ $k->fungsi->fungsi }}
+                                        @else
+                                            {{ $k->timkerja->tim_kerja_alias }}
+                                        @endif
                                     </span>
                                 </td>
                                 <td class="text-center">
@@ -78,7 +84,7 @@
                                                     class="bx bx-edit-alt me-1"></i> Edit</a>
                                             <a class="dropdown-item"
                                                 href="{{ route('kegiatan.download', [$k->slug]) }}"><i
-                                                    class="bx bx-printer me-1"></i> Print</a>
+                                                    class="bx bx-download me-1"></i> Download</a>
                                             <form action="{{ route('kegiatan.destroy', [$k->slug]) }}" method="POST">
                                                 @csrf
                                                 @method('delete')

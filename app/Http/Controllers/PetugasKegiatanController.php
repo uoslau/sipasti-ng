@@ -59,15 +59,6 @@ class PetugasKegiatanController extends Controller
         $sktnp = $request['sktnp'];
         $mitra = Mitra::where('sktnp', $sktnp)->first();
         $kegiatan = Kegiatan::where('slug', $slug)->first();
-        // $validatedData = $request->validate([
-        //     'bertugas_sebagai'  => 'required|string|max:255|regex:/^[a-zA-Z]+$/',
-        //     'wilayah_tugas'     => 'required',
-        //     'beban'             => 'required|integer',
-        //     'satuan'            => 'required|string|max:255|regex:/^[a-zA-Z]+$/',
-        // ], [
-        //     'bertugas_sebagai.regex' => 'Kolom ini hanya boleh berisi huruf.',
-        //     'satuan.regex' => 'Kolom ini hanya boleh berisi huruf.',
-        // ]);
 
         $validator = Validator::make($request->all(), [
             'bertugas_sebagai'  => 'required|string|max:255|regex:/^[a-zA-Z]+$/',

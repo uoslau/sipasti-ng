@@ -10,6 +10,7 @@ use App\Models\MataAnggaran;
 use App\Models\WilayahTugas;
 use Illuminate\Http\Request;
 use App\Models\PetugasKegiatan;
+use App\Models\TimKerja;
 use Illuminate\Support\Facades\DB;
 
 class KegiatanController extends Controller
@@ -19,8 +20,8 @@ class KegiatanController extends Controller
      */
     public function index()
     {
-        $kegiatan = Kegiatan::with(['PetugasKegiatan', 'Fungsi'])
-            ->select('nama_kegiatan', 'slug', 'tanggal_mulai', 'tanggal_selesai', 'fungsi_id')
+        $kegiatan = Kegiatan::with(['PetugasKegiatan', 'Fungsi', 'TimKerja'])
+            ->select('nama_kegiatan', 'slug', 'tanggal_mulai', 'tanggal_selesai', 'fungsi_id', 'tim_kerja_id')
             ->withSum('PetugasKegiatan', 'honor')
             ->orderBy('id', 'desc')
             ->paginate(10);
@@ -28,7 +29,8 @@ class KegiatanController extends Controller
         return view('kegiatan.index', [
             'kegiatan'      => $kegiatan,
             'mataanggaran'  => MataAnggaran::all(),
-            'fungsi'        => Fungsi::all(),
+            // 'fungsi'        => Fungsi::all(),
+            'tim_kerja'     => TimKerja::all(),
         ]);
     }
 
@@ -58,7 +60,8 @@ class KegiatanController extends Controller
             'tanggal_mulai'     => 'required|date',
             'tanggal_selesai'   => 'required|date',
             'mata_anggaran_id'  => 'required',
-            'fungsi_id'         => 'required',
+            // 'fungsi_id'         => 'required',
+            'tim_kerja_id'      => 'required',
             'honor_nias'        => 'nullable|integer',
             'honor_nias_barat'  => 'nullable|integer',
         ]);
@@ -75,7 +78,8 @@ class KegiatanController extends Controller
             'tanggal_mulai'     => $validatedData['tanggal_mulai'],
             'tanggal_selesai'   => $validatedData['tanggal_selesai'],
             'mata_anggaran_id'  => $validatedData['mata_anggaran_id'],
-            'fungsi_id'         => $validatedData['fungsi_id'],
+            // 'fungsi_id'         => $validatedData['fungsi_id'],
+            'tim_kerja_id'      => $validatedData['tim_kerja_id'],
             'honor_nias'        => $validatedData['honor_nias'] ?? 0,
             'honor_nias_barat'  => $validatedData['honor_nias_barat'] ?? 0,
         ]);
@@ -106,7 +110,8 @@ class KegiatanController extends Controller
         return view('kegiatan.edit', [
             'kegiatan'      => $kegiatan,
             'mataanggaran'  => MataAnggaran::all(),
-            'fungsi'        => Fungsi::all(),
+            // 'fungsi'        => Fungsi::all(),
+            'tim_kerja'     => TimKerja::all(),
         ]);
     }
 
@@ -126,7 +131,8 @@ class KegiatanController extends Controller
             'tanggal_mulai'     => 'required|date',
             'tanggal_selesai'   => 'required|date',
             'mata_anggaran_id'  => 'required',
-            'fungsi_id'         => 'required',
+            // 'fungsi_id'         => 'required',
+            'tim_kerja_id'      => 'required',
             'honor_nias'        => 'nullable|integer',
             'honor_nias_barat'  => 'nullable|integer',
         ];
@@ -146,7 +152,8 @@ class KegiatanController extends Controller
                 'tanggal_mulai'     => $validatedData['tanggal_mulai'],
                 'tanggal_selesai'   => $validatedData['tanggal_selesai'],
                 'mata_anggaran_id'  => $validatedData['mata_anggaran_id'],
-                'fungsi_id'         => $validatedData['fungsi_id'],
+                // 'fungsi_id'         => $validatedData['fungsi_id'],
+                'tim_kerja_id'      => $validatedData['tim_kerja_id'],
                 'honor_nias'        => $validatedData['honor_nias'] ?? 0,
                 'honor_nias_barat'  => $validatedData['honor_nias_barat'] ?? 0,
             ]);

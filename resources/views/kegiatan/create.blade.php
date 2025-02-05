@@ -49,7 +49,8 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-6">
+        {{-- Fungsi --}}
+        {{-- <div class="col-md-6">
             <div class="mb-6">
                 <label for="fungsi_id" class="form-label">Fungsi</label>
                 <select class="form-select" id="fungsi_id" name="fungsi_id">
@@ -61,6 +62,24 @@
                             </option>
                         @else
                             <option value="{{ $f->id }}">{{ $f->fungsi }}
+                            </option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
+        </div> --}}
+        <div class="col-md-6">
+            <div class="mb-6">
+                <label for="tim_kerja_id" class="form-label">Tim Kerja</label>
+                <select class="form-select" id="tim_kerja_id" name="tim_kerja_id">
+                    <option selected disabled>Pilih Tim Kerja</option>
+                    @foreach ($tim_kerja as $tk)
+                        @if (old('tim_kerja_id') == $tk->id)
+                            <option value="{{ $tk->id }}" selected>
+                                [{{ $tk->tim_kerja_alias }}] {{ $tk->tim_kerja }}
+                            </option>
+                        @else
+                            <option value="{{ $tk->id }}">[{{ $tk->tim_kerja_alias }}] {{ $tk->tim_kerja }}
                             </option>
                         @endif
                     @endforeach

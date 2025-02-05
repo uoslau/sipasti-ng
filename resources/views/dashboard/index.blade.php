@@ -20,7 +20,7 @@
                         @endforeach
                     </select>
                     <a href="{{ route('kontrak.download', $slug) }}" id="downloadButton" class="btn btn-primary ms-auto"
-                        style="margin-right: 20px">Download Kontrak</a>
+                        style="margin-right: 20px"><i class="bx bx-download me-1"></i> Download Kontrak</a>
                 </div>
             </form>
             @if ($petugas_bulan->isEmpty())

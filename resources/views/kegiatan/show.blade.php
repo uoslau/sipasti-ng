@@ -15,8 +15,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="card-header">{{ $nama_kegiatan }}</h5>
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal"
-                    style="margin-right: 20px;">
-                    Tambah Petugas
+                    style="margin-right: 20px;"><i class="bx bx-plus-circle me-1"></i> Tambah Petugas
                 </button>
                 <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">

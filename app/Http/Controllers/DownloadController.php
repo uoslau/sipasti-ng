@@ -86,7 +86,8 @@ class DownloadController extends Controller
             $templateProcessor = new TemplateProcessor($templatePath);
 
             $currentDate    = Carbon::createFromFormat('Y-m-d', $petugasList[0]->tanggal_mulai);
-            $kontrakDate    = ($currentDate->isSaturday() || $currentDate->isSunday()) ? $currentDate->previousWeekday() : $currentDate->copy()->startOfMonth();
+            $startMonth     = $currentDate->copy()->startOfMonth();
+            $kontrakDate    = ($startMonth->isSaturday() || $startMonth->isSunday()) ? $startMonth->previousWeekday() : $startMonth;
             $tanggal        = $kontrakDate->format('d');
             $bulan          = NumberToWords::monthName($kontrakDate->format('m'));
             $tahun          = $kontrakDate->format('Y');
@@ -236,7 +237,8 @@ class DownloadController extends Controller
                 'nama_kegiatan'             => $petugas->kegiatan->nama_kegiatan,
                 'beban'                     => $petugas->beban,
                 'satuan'                    => $petugas->satuan,
-                'fungsi'                    => $petugas->kegiatan->fungsi->fungsi,
+                // 'fungsi'                    => $petugas->kegiatan->fungsi->fungsi,
+                'tim_kerja'                 => $petugas->kegiatan->timkerja->tim_kerja_alias,
             ];
 
             foreach ($data as $key => $value) {
