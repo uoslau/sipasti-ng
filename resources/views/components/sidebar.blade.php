@@ -68,13 +68,18 @@
                 <div class="text-truncate" data-i18n="Dashboards">Kegiatan</div>
             </a>
         </li>
-
         {{-- <li class="menu-item {{ request()->is('mitra*') ? 'active' : '' }}">
             <a href="/mitra" class="menu-link border">
                 <i class='menu-icon tf-icons bx bx-id-card'></i>
                 <div class="text-truncate" data-i18n="Dashboards">Mitra</div>
             </a>
         </li> --}}
+        <li class="menu-item {{ request()->is('monitoring_rpd*') ? 'active' : '' }}">
+            <a href="/monitoring_rpd" class="menu-link">
+                <i class='menu-icon tf-icons bx bx-id-card'></i>
+                <div class="text-truncate" data-i18n="Dashboards">Monitoring RPD</div>
+            </a>
+        </li>
 
         <li class="dropdown-divider my-3"></li>
 

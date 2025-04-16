@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Response;
+use App\Http\Controllers\RPDController;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Response;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MitraController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MitraController;
 use App\Http\Controllers\PetugasKegiatanController;
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
@@ -31,6 +32,7 @@ Route::put('/kegiatan/{kegiatan}/{petugasKegiatan}', [PetugasKegiatanController:
 Route::post('/kegiatan/{kegiatan}/petugas-import', [PetugasKegiatanController::class, 'import'])->name('petugas.import')->middleware('auth');
 
 Route::get('/mitra', [MitraController::class, 'index'])->name('mitra.index')->middleware('auth');
+Route::get('/monitoring_rpd', [RPDController::class, 'index'])->name('rpd.index')->middleware('auth');
 
 Route::get('/kegiatan/download/{kegiatan}', [DownloadController::class, 'downloadBAST'])->name('kegiatan.download')->middleware('auth');
 Route::get('/kontrak/{slug}', [DownloadController::class, 'downloadKontrak'])->name('kontrak.download')->middleware('auth');
