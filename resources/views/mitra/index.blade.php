@@ -10,7 +10,7 @@
             <div class="card-header d-flex align-items-center">
                 <h5 class="mb-0 me-2">Versi Mitra Kepka Saat Ini : </h5>
                 <a href="#" id="downloadButton" class="btn btn-primary ms-auto" style="margin-right: 20px"><i
-                        class="bx bxs-download me-1"></i>Kontrak</a>
+                        class="bx bxs-download me-1"></i>Mitra</a>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">

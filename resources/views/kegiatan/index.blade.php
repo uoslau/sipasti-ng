@@ -83,19 +83,32 @@
                                             <i class="bx bx-dots-vertical-rounded"></i>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item border-bottom"
-                                                href="{{ route('kegiatan.edit', [$k->slug]) }}"><i
-                                                    class='bx bxs-edit'></i>Edit</a>
-                                            <a class="dropdown-item border-bottom"
-                                                href="{{ route('kegiatan.download', [$k->slug]) }}"><i
-                                                    class='bx bxs-download'></i>BAST</a>
-                                            <form action="{{ route('kegiatan.destroy', [$k->slug]) }}" method="POST">
-                                                @csrf
-                                                @method('delete')
-                                                <button class="dropdown-item"
-                                                    onclick="return confirm('Hapus Kegiatan?')"><i
-                                                        class='bx bxs-trash'></i>Hapus</button>
-                                            </form>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('kegiatan.edit', [$k->slug]) }}"><i
+                                                        class='bx bxs-edit'></i>Edit</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('kegiatan.download', [$k->slug]) }}"><i
+                                                        class='bx bxs-download'></i>BAST</a>
+                                            </li>
+                                            <li>
+                                                <hr class="dropdown-divider" />
+                                            </li>
+                                            <li>
+                                                <form action="{{ route('kegiatan.destroy', [$k->slug]) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button class="dropdown-item"
+                                                        onclick="return confirm('Hapus Kegiatan?')"><i
+                                                            class='bx bxs-trash'></i>Hapus</button>
+                                                </form>
+                                            </li>
                                         </div>
                                     </div>
                                 </td>

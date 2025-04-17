@@ -77,17 +77,24 @@
                                                 <i class="bx bx-dots-vertical-rounded"></i>
                                             </button>
                                             <div class="dropdown-menu">
-                                                <a class="dropdown-item border-bottom"
-                                                    href="{{ route('petugas.edit', [$slug, $p->id]) }}"><i
-                                                        class='bx bxs-edit'></i>Edit</a>
-                                                <form action="{{ route('petugas.destroy', [$slug, $p->sktnp]) }}"
-                                                    method="POST">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="dropdown-item"
-                                                        onclick="return confirm('Hapus Mitra?')"><i
-                                                            class='bx bxs-trash'></i>Hapus</button>
-                                                </form>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('petugas.edit', [$slug, $p->id]) }}"><i
+                                                            class='bx bxs-edit'></i>Edit</a>
+                                                </li>
+                                                <li>
+                                                    <hr class="dropdown-divider" />
+                                                </li>
+                                                <li>
+                                                    <form action="{{ route('petugas.destroy', [$slug, $p->sktnp]) }}"
+                                                        method="POST">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="dropdown-item"
+                                                            onclick="return confirm('Hapus Mitra?')"><i
+                                                                class='bx bxs-trash'></i>Hapus</button>
+                                                    </form>
+                                                </li>
                                             </div>
                                         </div>
                                     </td>

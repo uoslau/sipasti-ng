@@ -1,40 +1,28 @@
 <x-layout>
     <div class="container-xxl flex-grow-1 container-p-y">
+        @if (session()->has('success'))
+            <div class="alert alert-success alert-dismissible" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <div class="card">
-            <h5 class="card-header">Tabel Indikator Rencana Penarikan Dana April 2025</h5>
+            <div class="card-header d-flex align-items-center">
+                <h5 class="mb-0 me-2">Tabel Indikator Rencana Penarikan Dana April 2025</h5>
+            </div>
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Kegiatan</th>
-                            <th>Jenis Belanja</th>
                             <th>Output</th>
                             <th>Target</th>
                             <th>Realisasi SP2D</th>
                             <th>Selisih</th>
                             <th>Deviasi</th>
-                            <th>PIC</th>
                         </tr>
                     </thead>
-                    <tbody class="table table-hover">
+                    <tbody class="table-border-bottom">
                         <tr>
-                            <td rowspan="2">Dukman</td>
-                            <td>Belanja Pegawai</td>
-                            <td>EBA</td>
-                            <td>312.943.000</td>
-                            <td>311.364.101</td>
-                            <td>1.578.899</td>
-                            <td>0,50</td>
-                            <td>Eliaman Zebua</td>
-                        </tr>
-                        <tr>
-                            <td>Belanja Barang</td>
-                            <td>EBA, EBD</td>
-                            <td>41.906.000</td>
-                            <td>35.125.342</td>
-                            <td>6.780.658</td>
-                            <td>16,18</td>
-                            <td>Eliaman Zebua</td>
                         </tr>
                     </tbody>
                 </table>
