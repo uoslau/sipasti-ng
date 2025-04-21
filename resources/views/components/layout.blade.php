@@ -59,7 +59,7 @@
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
-                <x-navbar></x-navbar>
+                {{-- <x-navbar></x-navbar> --}}
                 <!-- / Navbar -->
                 <!-- Content wrapper -->
                 <div class="content-wrapper">

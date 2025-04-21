@@ -24,7 +24,7 @@ class KegiatanController extends Controller
             ->select('nama_kegiatan', 'slug', 'tanggal_mulai', 'tanggal_selesai', 'fungsi_id', 'tim_kerja_id')
             ->withSum('PetugasKegiatan', 'honor')
             ->orderBy('id', 'desc')
-            ->paginate(10);
+            ->paginate(12);
 
         return view('kegiatan.index', [
             'kegiatan'      => $kegiatan,
@@ -87,7 +87,7 @@ class KegiatanController extends Controller
      */
     public function show(Kegiatan $kegiatan)
     {
-        $petugasKegiatan = $kegiatan->PetugasKegiatan()->orderBy('nama_mitra', 'asc')->paginate(10);
+        $petugasKegiatan = $kegiatan->PetugasKegiatan()->orderBy('nama_mitra', 'asc')->paginate(12);
         return view('kegiatan.show', [
             'nama_kegiatan' => $kegiatan->nama_kegiatan,
             'slug'          => $kegiatan->slug,

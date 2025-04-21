@@ -19,6 +19,11 @@
                             </option>
                         @endforeach
                     </select>
+                    <div class="mx-1 row w-auto">
+                        <div class="col-md-10">
+                            <input class="form-control" type="search" value="Cari Nama ..." id="filter-nama" />
+                        </div>
+                    </div>
                     <a href="#" id="downloadButton" class="btn btn-primary ms-auto" style="margin-right: 20px"><i
                             class="bx bxs-download me-1"></i>Kontrak</a>
                 </div>

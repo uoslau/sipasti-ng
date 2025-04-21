@@ -24,7 +24,7 @@
                         <div class="col-md-12">
                             <div class="mb-6 position-relative">
                                 <label class="form-label" for="nama_mitra">Nama Mitra</label>
-                                <input type="text" class="form-control @error('nama_mitra') is-invalid @enderror"
+                                <input type="search" class="form-control @error('nama_mitra') is-invalid @enderror"
                                     id="nama_mitra" name="nama_mitra" placeholder="Ketik Untuk Mencari" required
                                     autofocus value="{{ old('nama_mitra') }}" autocomplete="off" />
                                 <ul id="mitra-list" class="list-group position-absolute w-100"></ul>
@@ -182,7 +182,7 @@
                 e.preventDefault();
                 activeIndex = (activeIndex - 1 + results.length) % results.length;
                 updateHighlight(list);
-            } else if (e.key === 'Enter') {
+            } else if (e.key === 'Enter' || e.key === 'Tab') {
                 e.preventDefault();
                 if (activeIndex >= 0 && activeIndex < results.length) {
                     selectMitra(results[activeIndex]);

@@ -32,7 +32,10 @@ Route::put('/kegiatan/{kegiatan}/{petugasKegiatan}', [PetugasKegiatanController:
 Route::post('/kegiatan/{kegiatan}/petugas-import', [PetugasKegiatanController::class, 'import'])->name('petugas.import')->middleware('auth');
 
 Route::get('/mitra', [MitraController::class, 'index'])->name('mitra.index')->middleware('auth');
+
 Route::get('/monitoring_rpd', [RPDController::class, 'index'])->name('rpd.index')->middleware('auth');
+Route::post('/monitoring_rpd', [RPDController::class, 'store'])->name('rpd.store')->middleware('auth');
+Route::put('/monitoring_rpd/{id}', [RPDController::class, 'update'])->name('rpd.update')->middleware('auth');
 
 Route::get('/kegiatan/download/{kegiatan}', [DownloadController::class, 'downloadBAST'])->name('kegiatan.download')->middleware('auth');
 Route::get('/kontrak/{slug}', [DownloadController::class, 'downloadKontrak'])->name('kontrak.download')->middleware('auth');

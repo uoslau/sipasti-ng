@@ -37,7 +37,6 @@
                             <th class="text-center">Budget</th>
                             <th class="text-center">Tim Kerja</th>
                             <th class="text-center">Mulai/Selesai</th>
-                            {{-- <th class="text-center">Selesai</th> --}}
                             <th></th>
                         </tr>
                     </thead>
@@ -71,11 +70,6 @@
                                         {{ $k->tanggal_selesai }}
                                     </span>
                                 </td>
-                                {{-- <td class="text-center">
-                                    <span class="badge bg-label-warning">
-                                        {{ $k->tanggal_selesai }}
-                                    </span>
-                                </td> --}}
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
