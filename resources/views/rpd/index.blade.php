@@ -171,7 +171,7 @@
                                 </tr>
                                 @if (!empty($r->catatan))
                                     <tr class="collapse" id="collapse-{{ $loop->index }}">
-                                        <td colspan="100%">
+                                        <td colspan="6">
                                             <div class="d-flex align-items-start gap-2"
                                                 style="white-space: pre-wrap;">
                                                 <i class='bx bx-subdirectory-right'></i><span
@@ -179,12 +179,13 @@
                                                 </span>{{ $r->catatan }}
                                             </div>
                                         </td>
+                                        <td></td>
                                     </tr>
                                 @endif
                             @endforeach
                             @foreach ($rekap_jenis_belanja as $rb)
                                 <tr>
-                                    <td class=" text-center fw-bold">Total {{ $rb['jenis_belanja'] }}</td>
+                                    <td class="text-center fw-bold">Total {{ $rb['jenis_belanja'] }}</td>
                                     <td class="text-end fw-bold">
                                         <span class="badge bg-primary">
                                             Rp. {{ number_format($rb['total_target'], 0, ',', '.') }}
@@ -201,7 +202,7 @@
                                             {{ number_format($rb['selisih'], 0, ',', '.') }}
                                         </span>
                                     </td>
-                                    <td class="text-center" colspan="2">
+                                    <td class="text-end fw-bold">
                                         <span class="badge {{ $rb['warna'] }}">
                                             @if ($rb['total_target'] != 0)
                                                 {{ number_format($rb['deviasi'], 2, ',', '.') }} %
@@ -210,6 +211,7 @@
                                             @endif
                                         </span>
                                     </td>
+                                    <td></td>
                                     <td></td>
                                 </tr>
                             @endforeach
@@ -230,7 +232,7 @@
                                         Rp. {{ number_format($rekap_total->selisih, 0, ',', '.') }}
                                     </span>
                                 </td>
-                                <td class="text-center fw-bold" colspan="2">
+                                <td class="text-end fw-bold">
                                     <span class="badge {{ $rekap_total->warna }}"">
                                         @if ($rekap_total->total_target != 0)
                                             {{ number_format($rekap_total->deviasi, 2, ',', '.') }} %
@@ -239,6 +241,7 @@
                                         @endif
                                     </span>
                                 </td>
+                                <td></td>
                                 <td></td>
                             </tr>
                         </tbody>

@@ -191,7 +191,7 @@ class RPDController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // dd($id);
+        // dd($request);
         $request->merge([
             'rpd_target' => $request->rpd_target ? str_replace('.', '', $request->rpd_target) : null,
             'rpd_realisasi' => $request->rpd_realisasi ? str_replace('.', '', $request->rpd_realisasi) : null,
@@ -209,6 +209,9 @@ class RPDController extends Controller
             'rpd_catatan'       => 'nullable|string|max:1000',
         ]);
 
+        $bulan = $validatedData['rpd_bulan'];
+        $tahun = $validatedData['rpd_tahun'];
+
         RPD::where('id', $id)
             ->update([
                 'kegiatan'      => $validatedData['rpd_kegiatan'],
@@ -222,7 +225,7 @@ class RPDController extends Controller
                 'catatan'       => $validatedData['rpd_catatan'],
             ]);
 
-        return redirect('/monitoring_rpd')->with('success', 'Data berhasil diedit!');
+        return redirect('/monitoring_rpd?bulan=' . $bulan . '&tahun=' . $tahun)->with('success', 'Data berhasil diedit!');
     }
 
     /**
