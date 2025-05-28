@@ -9,8 +9,25 @@
         @endif --}}
             <div class="card-header d-flex align-items-center">
                 <h5 class="mb-0 me-2">Versi Mitra Kepka Saat Ini : </h5>
-                <a href="#" id="downloadButton" class="btn btn-primary ms-auto" style="margin-right: 20px"><i
-                        class="bx bxs-download me-1"></i>Mitra</a>
+                <a href="#" class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#addModal"
+                    style="margin-right: 20px;">
+                    <i class='bx bxs-edit'></i> Mitra
+                </a>
+                <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel3">Tambah
+                                    Mitra</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                @include('mitra.create')
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="table-responsive text-nowrap">
                 <table class="table table-hover">
