@@ -99,7 +99,8 @@
                             @csrf
                             <input type="hidden" name="slug" value="{{ $slug }}">
                             <div class="input-group">
-                                <input type="file" class="form-control" id="file" name="excel_file" />
+                                <input type="file" required class="form-control" id="file"
+                                    name="excel_file" />
                                 <button class="btn btn-primary" type="submit">Import</button>
                             </div>
                         </form>
