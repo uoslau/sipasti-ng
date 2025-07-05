@@ -49,7 +49,13 @@
                         </thead>
                         <tbody class="table-border-bottom">
                             @foreach ($petugas_bulan as $p)
-                                <tr class="clickable-row" data-target="#details-{{ $loop->index }}"
+                                @php
+                                    $status = '';
+                                    if ($p['total_honor'] > $p['honor_max']) {
+                                        $status = 'table-danger';
+                                    }
+                                @endphp
+                                <tr class="clickable-row {{ $status }}" data-target="#details-{{ $loop->index }}"
                                     data-toggle="collapse">
                                     <td>
                                         <div class="form-check">
