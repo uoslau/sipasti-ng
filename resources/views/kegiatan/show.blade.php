@@ -103,7 +103,7 @@
                         </tbody>
                     </table>
                     <div class="pagination pagination-sm justify-content-end pt-3">
-                        {{ $petugas->links() }}
+                        {{ $petugas->onEachSide(0)->links() }}
                     </div>
                 </div>
             @endif

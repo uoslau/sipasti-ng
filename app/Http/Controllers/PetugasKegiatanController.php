@@ -164,7 +164,13 @@ class PetugasKegiatanController extends Controller
      */
     public function show(PetugasKegiatan $petugasKegiatan)
     {
-        //
+        $petugasKegiatan = PetugasKegiatan::with(['kegiatan'])
+            ->select('nama_mitra', 'kegiatan_id', 'nomor_kontrak', 'nomor_bast')
+            ->orderBy('id', 'desc')
+            ->paginate(12);
+        return view('petugas.show', [
+            'petugas' => $petugasKegiatan,
+        ]);
     }
 
     /**

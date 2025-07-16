@@ -24,6 +24,7 @@ Route::get('/kegiatan/{kegiatan}/edit-kegiatan', [KegiatanController::class, 'ed
 Route::put('/kegiatan/{kegiatan}', [KegiatanController::class, 'update'])->name('kegiatan.update')->middleware('auth');
 Route::delete('/kegiatan/{kegiatan}', [KegiatanController::class, 'destroy'])->name('kegiatan.destroy')->middleware('auth');
 
+Route::get('/petugas_kegiatan', [PetugasKegiatanController::class, 'show'])->name('petugas.show')->middleware('auth');
 Route::delete('/kegiatan/{kegiatan}/{petugasKegiatan}', [PetugasKegiatanController::class, 'destroy'])->name('petugas.destroy')->middleware('auth');
 Route::get('search-mitra', [PetugasKegiatanController::class, 'search'])->name('petugas.search')->middleware('auth');
 Route::post('/kegiatan/{kegiatan}', [PetugasKegiatanController::class, 'store'])->name('petugas.store')->middleware('auth');
@@ -33,6 +34,7 @@ Route::post('/kegiatan/{kegiatan}/petugas-import', [PetugasKegiatanController::c
 
 Route::get('/mitra', [MitraController::class, 'index'])->name('mitra.index')->middleware('auth');
 Route::post('/mitra/mitra-import', [MitraController::class, 'import'])->name('mitra.import')->middleware('auth');
+
 
 Route::get('/monitoring_rpd', [RPDController::class, 'index'])->name('rpd.index')->middleware('auth');
 Route::post('/monitoring_rpd', [RPDController::class, 'store'])->name('rpd.store')->middleware('auth');
