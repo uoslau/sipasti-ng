@@ -73,12 +73,6 @@
                 <i class='menu-icon tf-icons bx bx-id-card'></i>
                 <div class="text-truncate" data-i18n="Dashboards">Mitra</div>
             </a>
-        </li> --}}
-        <li class="menu-item {{ request()->is('petugas_kegiatan*') ? 'active' : '' }}">
-            <a href="/petugas_kegiatan" class="menu-link">
-                <i class='menu-icon tf-icons bx bx-wallet'></i>
-                <div class="text-truncate" data-i18n="Dashboards">Petugas Kegiatan</div>
-            </a>
         </li>
         {{-- <li class="menu-item {{ request()->is('monitoring_rpd*') ? 'active' : '' }}">
             <a href="/monitoring_rpd" class="menu-link">
