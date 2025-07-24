@@ -68,12 +68,12 @@
                 <div class="text-truncate" data-i18n="Dashboards">Kegiatan</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->is('petugas_kegiatan*') ? 'active' : '' }}">
+        {{-- <li class="menu-item {{ request()->is('petugas_kegiatan*') ? 'active' : '' }}">
             <a href="/petugas_kegiatan" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-id-card"></i>
                 <div class="text-truncate" data-i18n="Dashboards">Petugas Kegiatan</div>
             </a>
-        </li>
+        </li> --}}
         {{-- <li class="menu-item {{ request()->is('mitra*') ? 'active' : '' }}">
             <a href="/mitra" class="menu-link">
                 <i class='menu-icon tf-icons bx bx-id-card'></i>
